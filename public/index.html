@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Studyroom</title><style>:root{--bg:#ffffff;--cd:#fff;--tx:#1d1340;--mu:#6b6590;--pr:#4a1bc4;--pl:#e4dbff;--bd:#d9cfff;--er:#b3261e;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px)}
+html,body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.4 system-ui,-apple-system,"Segoe UI",sans-serif}
+#app,.wrap{max-width:520px;margin:0 auto}.wrap{padding:18px 18px 24px}.wrap.pn{padding-bottom:100px}
+h1{font-size:30px;font-weight:800;margin:0;color:var(--pr)}h2{font-size:26px;font-weight:800;margin:6px 0 14px;color:var(--pr)}h3{font-size:19px;margin:20px 0 10px}
+.top{display:flex;justify-content:space-between;align-items:center;margin:0 0 10px;padding:14px 18px 0}
+.hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}.av{width:44px;height:44px;border-radius:50%;border:2px solid var(--pr);color:var(--pr);display:grid;place-items:center;font-weight:800;font-size:20px}
+.c{background:var(--cd);border:1px solid var(--bd);border-radius:18px;padding:14px;margin:10px 0}
+.f{background:var(--cd);border:1.5px solid var(--bd);border-radius:14px;padding:9px 14px;margin:12px 0}.f label{display:block;margin:0 0 2px;font-size:14px;font-weight:700;color:var(--tx)}
+.f input,.f select{border:0;padding:3px 0;background:transparent;outline:0;color:var(--tx);width:100%;font:inherit;box-sizing:border-box}
+label{display:block;font-size:13px;color:var(--mu);margin:10px 0 4px}
+input,select,textarea{width:100%;box-sizing:border-box;padding:12px;border:1.5px solid var(--bd);border-radius:14px;background:var(--cd);color:var(--tx);font:inherit}
+.sb{border-radius:16px;background:var(--pl);border:0}
+button{width:100%;margin-top:12px;padding:14px;border:0;border-radius:14px;background:var(--pr);color:#fff;font:700 17px system-ui}
+button.g,button.o{background:var(--cd);color:var(--pr);border:1.5px solid var(--pr)}button.s{width:auto;padding:7px 14px;margin:0;font-size:14px;border-radius:10px}
+.er{color:var(--er);min-height:1.2em;font-size:14px;margin:6px 0 0}.note{background:var(--pl);border-radius:14px;padding:12px;font-size:14px}
+.big{font-size:30px;font-weight:800}.mu{color:var(--mu);font-size:14px}.row{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px solid var(--bd);font-size:15px}.row:last-child{border:0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.grid .c{margin:0}
+.splash{min-height:56vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:6px}.splash p{margin:4px 0;color:var(--tx)}
+.seg{display:flex;background:var(--pl);border-radius:14px;padding:4px;gap:4px}.seg button{margin:0;padding:10px;background:none;color:var(--pr);font-size:15px}.seg button.on{background:var(--pr);color:#fff}
+.chips{display:flex;gap:8px;flex-wrap:wrap}.chip{padding:9px 16px;border-radius:12px;background:var(--cd);border:1.5px solid var(--bd);color:var(--pr);font-weight:700;font-size:14px;cursor:pointer}.chip.on{background:var(--pr);color:#fff;border-color:var(--pr)}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:12px}.k{background:var(--cd);border:1px solid var(--bd);border-radius:18px;padding:10px;display:flex;flex-direction:column;gap:6px}.th{height:80px;border-radius:12px;background:var(--pl);display:grid;place-items:center;font-size:32px}
+.hero{background:linear-gradient(135deg,#4a1bc4,#7b4dff);color:#fff;border-radius:22px;padding:22px;margin:8px 0 14px}.hero .big,.hero .mu{color:#fff}
+.ok{width:92px;height:92px;border-radius:50%;background:var(--pl);display:grid;place-items:center;margin:20px auto 10px;font-size:44px}
+.nav{position:fixed;left:0;right:0;bottom:0;display:flex;justify-content:space-around;max-width:520px;margin:0 auto;background:var(--pl);border-radius:22px 22px 0 0;padding:8px 8px calc(8px + env(safe-area-inset-bottom,0px))}
+.nav button{width:auto;margin:0;background:none;color:var(--mu);padding:6px 16px;border-radius:14px;display:flex;flex-direction:column;align-items:center;font:600 12px system-ui}.nav button span{font-size:22px}.nav button.on{background:var(--pr);color:#fff}
+
+html,body{background:#fff!important}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes drw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+@keyframes drop{0%{transform:translateY(-40px) scale(.6);opacity:0}60%{transform:translateY(4px) scale(1.05);opacity:1}100%{transform:none;opacity:1}}
+@keyframes ltr{from{opacity:0;transform:translateY(28px) rotate(6deg)}to{opacity:1;transform:none}}
+@keyframes fil{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes ring{0%{transform:scale(.4);opacity:.5}100%{transform:scale(2.4);opacity:0}}
+@keyframes pop{0%{transform:scale(0)}70%{transform:scale(1.12)}100%{transform:scale(1)}}
+.wrap>*{animation:rise .5s cubic-bezier(.2,.8,.2,1) both}
+.wrap>*:nth-child(2){animation-delay:.06s}.wrap>*:nth-child(3){animation-delay:.12s}.wrap>*:nth-child(4){animation-delay:.18s}.wrap>*:nth-child(5){animation-delay:.24s}.wrap>*:nth-child(n+6){animation-delay:.3s}
+.cards .k{animation:rise .5s both}.cards .k:nth-child(2){animation-delay:.1s}.cards .k:nth-child(3){animation-delay:.16s}.cards .k:nth-child(4){animation-delay:.22s}.cards .k:nth-child(n+5){animation-delay:.28s}
+button,.chip,.k{transition:transform .15s,box-shadow .2s,background .2s}button:active,.chip:active{transform:scale(.96)}.k:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(74,27,196,.12)}
+.ok{animation:pop .6s .1s both cubic-bezier(.3,1.4,.5,1)}
+#intro{position:fixed;inset:0;z-index:99;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;transition:clip-path .8s cubic-bezier(.7,0,.2,1),opacity .4s .5s;clip-path:circle(150% at 50% 50%)}
+#intro.go{clip-path:circle(0% at 50% 50%);opacity:0;pointer-events:none}
+#intro .lg{position:relative;width:96px;height:96px;display:grid;place-items:center}
+#intro .lg:before{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid var(--pr);animation:ring 1.6s .3s infinite ease-out}
+#intro svg{width:96px;height:96px;overflow:visible}#intro path{stroke-dasharray:1;stroke-dashoffset:1;animation:drw 1.1s .1s forwards ease-out}
+#intro path:first-child{animation:drw 1.1s .1s forwards ease-out,drop .9s .1s both}
+#intro h1{font-size:42px;display:flex;overflow:hidden;padding:4px 2px}#intro h1 span{display:inline-block;opacity:0;animation:ltr .6s calc(.7s + var(--i)*.06s) forwards cubic-bezier(.2,.9,.3,1.2)}
+#intro p{margin:0;color:var(--mu);opacity:0;animation:rise .6s 1.5s forwards}
+#intro .bar{width:140px;height:4px;border-radius:4px;background:var(--pl);overflow:hidden;margin-top:14px}#intro .bar i{display:block;height:100%;background:linear-gradient(90deg,#4a1bc4,#7b4dff);transform-origin:left;animation:fil 2.1s .2s forwards cubic-bezier(.5,0,.3,1);transform:scaleX(0)}
+.offb{position:fixed;top:0;left:0;right:0;z-index:60;background:var(--tx);color:#fff;text-align:center;font-size:13px;padding:5px 8px calc(5px)}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-delay:0s!important;transition:none!important}}</style><link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#4a1bc4"><link rel="apple-touch-icon" href="/icon-192.png"><link rel="icon" href="/icon-192.png"></head>
+<body><div id="intro"><div class="lg"><svg viewBox="0 0 24 24" fill="none" stroke="#4a1bc4" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path pathLength="1" d="M12 2a5.5 5.5 0 0 0-5.5 5.5c0 3.6 5.5 8.5 5.5 8.5s5.5-4.9 5.5-8.5A5.5 5.5 0 0 0 12 2z"/><path pathLength="1" d="M12 5.5v4M10 7.500h4"/><path pathLength="1" d="M3 15c3 0 6 .5 9 3 3-2.5 6-3 9-3v5c-3 0-6 .5-9 3-3-2.5-6-3-9-3z"/></svg></div><h1 id="iw"></h1><p>Past papers, notes and quizzes</p><div class="bar"><i></i></div></div>
+<div id="offb" class="offb" style="display:none">You're offline. Saved files and data still work.</div><div id="app"></div><script>
+const $=s=>document.querySelector(s),v=i=>$("#"+i).value.trim(),esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const UNIS="University of Nairobi|Moi University|Kenyatta University|Egerton University|JKUAT|Maseno University|Masinde Muliro University of Science and Technology|Dedan Kimathi University of Technology|Chuka University|Technical University of Kenya|Technical University of Mombasa|Pwani University|Kisii University|University of Eldoret|Maasai Mara University|Jaramogi Oginga Odinga University of Science and Technology|Laikipia University|South Eastern Kenya University|Multimedia University of Kenya|University of Embu|Karatina University|Kibabii University|Garissa University|Taita Taveta University|Murang'a University of Technology|Machakos University|Meru University of Science and Technology|Kirinyaga University|Rongo University|Co-operative University of Kenya|Tom Mboya University|Alupe University|Tharaka University|Koitalel Samoei University|Mama Ngina University|Strathmore University|USIU-Africa|Daystar University|Catholic University of Eastern Africa|Mount Kenya University|Kenya Methodist University|KCA University|Africa Nazarene University|Pan Africa Christian University|Scott Christian University|Great Lakes University of Kisumu|Gretsa University|Kabarak University|University of Eastern Africa, Baraton|St. Paul's University|Adventist University of Africa|Aga Khan University|Kenya Highlands Evangelical University|Zetech University|Riara University|Lukenya University|Management University of Africa|Presbyterian University of East Africa|Africa International University|Tangaza University|Pioneer International University|Umma University|Inoorero University|Other".split("|");let T=localStorage.getItem("sr_t"),X={role:"stu"},tick;
+const PK=()=>"sr_p_"+((X.me||{}).email||"").toLowerCase(),P=()=>{try{return JSON.parse(localStorage.getItem(PK()))||{}}catch(e){return{}}};
+const TO=()=>AbortSignal.timeout?AbortSignal.timeout(8e3):undefined;
+function clearC(){Object.keys(localStorage).filter(k=>k.startsWith("sr_c:")).forEach(k=>localStorage.removeItem(k))}
+async function api(p,b){const g=b===undefined,ck=g&&!/^search/.test(p)?"sr_c:"+p:null,c=()=>ck&&localStorage.getItem(ck);let r;
+try{r=await fetch("/api/"+p,{method:g?"GET":"POST",headers:{"Content-Type":"application/json",Authorization:"Bearer "+(T||"")},body:g?undefined:JSON.stringify(b),signal:c()?TO():undefined})}
+catch(e){if(c())return JSON.parse(c());throw new Error("You're offline. Connect to the internet and try again.")}
+if(g&&r.status>=500&&c())return JSON.parse(c());
+const d=await r.json().catch(()=>({}));if(r.status==401&&T){out();throw new Error("Please log in again.")}if(!r.ok)throw new Error(d.error||"Something went wrong.");if(ck)try{localStorage.setItem(ck,JSON.stringify(d))}catch(e){}return d}
+const er=m=>{const e=$("#er");if(e)e.textContent=m||""};
+async function run(f,b){er();if(b)b.disabled=true;try{await f()}catch(e){er(e.message);if(b)b.disabled=false}}
+function R(x,n){clearInterval(tick);$("#app").innerHTML=`<div class="wrap${n?" pn":""}">${x}</div>${n||""}`;scrollTo(0,0)}
+const nav=(a,it)=>`<nav class="nav">${it.map((i,k)=>`<button class="${k==a?"on":""}" onclick="${i[2]}"><span>${i[0]}</span>${i[1]}</button>`).join("")}</nav>`;
+const sN=a=>nav(a,[["🏠","Home","boot()"],["⬇️","Downloads","dl()"],["🔍","Search","search()"],["👤","Profile","profile()"]]);
+const aN=a=>nav(a,[["🏠","Home","boot()"],["💬","Help","help()"],["👤","Profile","profile()"]]);
+const back=f=>`<p style="margin:0 0 10px"><a href="#" onclick="${f};return false" style="color:var(--mu);text-decoration:none">‹ Back</a></p>`;
+function out(){localStorage.removeItem("sr_t");clearC();T=null;X={role:"stu"};splash()}
+const LOGO=`<svg width="74" height="74" viewBox="0 0 24 24" fill="none" stroke="#4a1bc4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="stroke:var(--pr)"><path d="M12 2a5.5 5.5 0 0 0-5.5 5.5c0 3.6 5.5 8.5 5.5 8.5s5.5-4.9 5.5-8.5A5.5 5.5 0 0 0 12 2z"/><path d="M12 5.5v4M10 7.500h4"/><path d="M3 15c3 0 6 .5 9 3 3-2.5 6-3 9-3v5c-3 0-6 .5-9 3-3-2.5-6-3-9-3z"/></svg>`;
+function splash(){R(`<div class="splash">${LOGO}<h1 style="font-size:40px">Studyroom</h1><p>Past papers, notes and quizzes for first years</p></div>
+<button onclick="signup()">Create Account</button><button class="o" onclick="login()">Log In</button>${localStorage.getItem("sr_last")?`<button class="o" onclick="dl(1)">My downloads (works offline)</button>`:""}`)}
+function signup(){const r=X.role;R(`${back("splash()")}<h2>Create Account</h2>
+<div class="seg"><button id="b1" class="${r=="stu"?"on":""}" onclick="setRole('stu')">Reading account</button><button id="b2" class="${r=="aff"?"on":""}" onclick="setRole('aff')">Affiliate account</button></div>
+<div class="f"><label>Mobile number (M-Pesa)</label><input id="ph" type="tel" placeholder="07XX XXX XXX"></div>
+<div class="f"><label>Email</label><input id="em" type="email" placeholder="Enter your email"></div>
+<div class="f"><label>Password</label><input id="pw" type="password" placeholder="Create a password (6+ characters)"></div>
+<div class="f" id="rfw" ${r=="aff"?'style="display:none"':""}><label>Referral code (optional)</label><input id="rf" placeholder="1STUI00001"></div>
+<p id="er" class="er"></p><button onclick="run(doSignup,this)">Sign Up</button><button class="o" onclick="login()">I already have an account</button>`)}
+function setRole(r){X.role=r;$("#b1").classList.toggle("on",r=="stu");$("#b2").classList.toggle("on",r=="aff");$("#rfw").style.display=r=="stu"?"":"none"}
+async function doSignup(){const d=await api("signup",{role:X.role,phone:v("ph"),email:v("em"),password:v("pw"),ref:X.role=="stu"?v("rf"):""});T=d.token;clearC();localStorage.setItem("sr_t",T);boot()}
+function login(){R(`${back("splash()")}<h2>Log In</h2><div class="f"><label>Email</label><input id="em" type="email" placeholder="Enter your email"></div><div class="f"><label>Password</label><input id="pw" type="password" placeholder="Your password"></div>
+<p id="er" class="er"></p><button onclick="run(doLogin,this)">Log In</button><button class="o" onclick="signup()">Create Account</button>`)}
+async function doLogin(){const d=await api("login",{email:v("em"),password:v("pw")});T=d.token;clearC();localStorage.setItem("sr_t",T);boot()}
+async function setup(){const p=P();X.su=new Set(p.units||[]);R(`${p.uni?back("profile()"):""}<h2>Profile Setup</h2><div class="f"><label>Choose your university</label><select id="un" onchange="uOpts()"><option value="">Select your university</option>${UNIS.map(u=>`<option${u==p.uni?" selected":""}>${u}</option>`).join("")}</select></div>
+<h3>Units you are taking</h3><div class="chips" id="uo"></div><div class="f"><label>Add a unit that is not listed</label><input id="nu" placeholder="e.g. Communication Skills"></div><button class="o" onclick="addU()">Add unit</button>
+<h3>Study preferences</h3><div class="chips" id="pf">${["Notes","Past papers","Quizzes"].map(c=>`<span class="chip${(p.pf||["Past papers"]).includes(c)?" on":""}" onclick="this.classList.toggle('on')">${c}</span>`).join("")}</div><button onclick="saveP()">Complete Profile</button><p id="er" class="er"></p>`);uOpts()}
+const chipU=u=>`<span class="chip${X.su.has(u)?" on":""}" data-u="${esc(u)}" onclick="togU(this)">${esc(u)}</span>`;
+async function uOpts(){const u=$("#un").value,el=$("#uo");if(!u){el.innerHTML='<span class="mu">Choose your university first.</span>';return}
+let l=[];try{l=await api("unit-options?uni="+encodeURIComponent(u))}catch(e){}
+const all=[...new Set([...l,...X.su])];el.innerHTML=all.map(chipU).join("")||'<span class="mu">No units uploaded yet. Add yours below.</span>'}
+function togU(e){const u=e.dataset.u;X.su.has(u)?X.su.delete(u):X.su.add(u);e.classList.toggle("on")}
+function addU(){const i=$("#nu"),u=i.value.trim().slice(0,100);if(!u)return;X.su.add(u);i.value="";uOpts()}
+async function saveP(){const un=$("#un").value;if(!un)return er("Please choose your university.");const units=[...X.su];try{await api("uni",{uni:un,units})}catch(e){return er(e.message)}
+localStorage.setItem(PK(),JSON.stringify({uni:un,units,pf:[...document.querySelectorAll("#pf .on")].map(e=>e.textContent)}));clearC();boot()}
+async function boot(){if(!T)return splash();try{const d=await api("me");X.me=d;localStorage.setItem("sr_last",d.email);if(d.uni)localStorage.setItem(PK(),JSON.stringify({...P(),uni:d.uni,units:d.units||[]}));
+d.role=="stu"?(!P().uni?setup():d.paid||d.admin||d.email.toLowerCase()=="mwaigideon190@gmail.com"?student(d):pay()):aff(d)}
+                      catch(e){R(`<div class="splash"><h2>Can't connect</h2><p class="mu">You are still logged in. Check your internet and try again.</p></div><button onclick="boot()">Try again</button>${localStorage.getItem("sr_last")?`<button class="o" onclick="dl(1)">My downloads (works offline)</button>`:""}`)}}
+function pay(){R(`<div class="hero"><div class="mu">Study Room access</div><div class="big">KES 150</div><p style="margin:6px 0 0">Unlock everything for your course</p></div>
+<h3>What you get</h3><div class="chips"><span class="chip">📘 Notes</span><span class="chip">📄 Past papers</span><span class="chip">📝 CATs</span><span class="chip">✅ Quizzes</span></div>
+<p class="mu">You will get an M-Pesa prompt on your phone. Enter your PIN to finish.</p><p id="er" class="er"></p><button onclick="run(doPay,this)">Pay KES 150 with M-Pesa</button>`)}
+async function doPay(){await api("pay",{});er("Check your phone and enter your M-Pesa PIN…");let n=0;tick=setInterval(async()=>{n++;try{const d=await api("me");if(d.paid){clearInterval(tick);X.me=d;confirmed()}}catch(e){}if(n>40){clearInterval(tick);er("No payment received yet. Tap Pay to try again.");$("button").disabled=false}},3e3)}
+function confirmed(){const d=X.me;R(`<div class="ok">✓</div><h2 style="text-align:center">Access Confirmed!</h2><p class="mu" style="text-align:center">Your Study Room is unlocked.</p>
+<div class="c"><b>Summary</b><div class="row"><span>Plan</span><b>Study Room access</b></div><div class="row"><span>Date</span><b>${new Date().toLocaleDateString()}</b></div><div class="row"><span>Phone</span><b>${esc(d.phone)}</b></div><div class="row"><span>Total paid</span><b>KES 150 · Paid</b></div></div>
+<button onclick="boot()">Done</button>`)}
+function student(d){const p=P();R(`<div class="hd"><div><div class="mu">${esc(p.uni||"Welcome back")}</div><h1>Studyroom</h1></div><div class="av">${esc(d.email[0].toUpperCase())}</div></div>
+<input class="sb" placeholder="🔍 Search notes, CATs, exams…" readonly onclick="search()"><h3>Categories</h3><div class="chips">${CATS.map(c=>`<span class="chip" onclick="catPage('${c}')">${c}</span>`).join("")}</div>
+<h3>My units</h3><div class="cards" id="ul"></div><div id="ou"></div>`,sN(0));X.ul=null;units();api("units").then(l=>{X.ul=l;units()}).catch(e=>{X.ul={mine:[],other:[]};units();$("#ul").insertAdjacentHTML("afterbegin",`<p class="mu">${esc(e.message)}</p>`)})}
+const CATS=["Notes","Past papers","CATs","Exams","Quizzes"],me=()=>((X.me||{}).email||localStorage.getItem("sr_last")||"").toLowerCase();
+const DB=()=>new Promise((ok,no)=>{const r=indexedDB.open("sr",1);r.onupgradeneeded=()=>r.result.createObjectStore("f",{keyPath:"k"});r.onsuccess=()=>ok(r.result);r.onerror=()=>no(r.error)});
+const dbx=async(m,a)=>{const d=await DB();return new Promise((ok,no)=>{const q=d.transaction("f",m=="get"||m=="all"?"readonly":"readwrite").objectStore("f")[m=="all"?"getAll":m](a);q.onsuccess=()=>ok(q.result);q.onerror=()=>no(q.error)})};
+function units(){const L=X.ul;if(!L){$("#ul").innerHTML='<p class="mu">Loading units…</p>';return}
+const k=x=>`<div class="k" data-u="${esc(x.unit)}" onclick="unitPage(this.dataset.u)"><div class="th">📘</div><b>${esc(x.unit)}</b><span class="mu">${x.n?x.n+" file"+(x.n>1?"s":""):"No files yet"}</span></div>`;
+$("#ul").innerHTML=L.mine.map(k).join("")||'<p class="mu">No units picked yet. Open Profile and tap Edit university and units.</p>';$("#ou").innerHTML=L.other.length?`<h3>Other units</h3><div class="cards">${L.other.map(k).join("")}</div>`:""}
+const fcard=(f,have)=>`<div class="c"><b>${esc(f.title)}</b><p class="mu" style="margin:2px 0 0">${esc(f.unit)} · ${esc(f.cat)}</p>${have.has(f.id)?`<button class="o" onclick="openF('${esc(f.id)}')">Open (downloaded)</button>`:`<button class="o" onclick="getF('${esc(f.id)}',this)">Download</button>`}</div>`;
+const haveSet=async()=>new Set((await dbx("all")).filter(r=>r.email==me()).map(r=>r.id)),keep=l=>{X.fm=Object.assign(X.fm||{},Object.fromEntries(l.map(f=>[f.id,f])))};
+async function showFiles(path,key){const l=await api(path),have=await haveSet();keep(l);const gs=key=="cat"?CATS:[...new Set(l.map(f=>f.unit))];
+$("#fl").innerHTML=l.length?gs.map(g=>{const x=l.filter(f=>f[key]==g);return x.length?`<h3>${esc(g)}</h3>`+x.map(f=>fcard(f,have)).join(""):""}).join(""):'<p class="mu">Nothing uploaded here yet.</p>'}
+async function unitPage(u){R(`${back("boot()")}<h2>${esc(u)}</h2><p class="mu">${esc(P().uni||"")}</p><div id="fl"><p class="mu">Loading…</p></div>`,sN(0));try{await showFiles("files?unit="+encodeURIComponent(u),"cat")}catch(e){$("#fl").innerHTML=`<p class="mu">${esc(e.message)}</p>`}}
+async function catPage(c){R(`${back("boot()")}<h2>${esc(c)}</h2><p class="mu">${esc(P().uni||"")}</p><div id="fl"><p class="mu">Loading…</p></div>`,sN(0));try{await showFiles("files?cat="+encodeURIComponent(c),"unit")}catch(e){$("#fl").innerHTML=`<p class="mu">${esc(e.message)}</p>`}}
+function search(){R(`<h2>Search</h2><input id="sq" class="sb" placeholder="🔍 Unit, topic or e.g. cat 1 2026" oninput="sDeb()"><div id="sr"><p class="mu">Finds your files and related ones. Downloaded files can be searched offline.</p></div>`,sN(2));setTimeout(()=>$("#sq").focus(),50)}
+let sT;const sDeb=()=>{clearTimeout(sT);sT=setTimeout(doSearch,450)};
+async function doSearch(){const t=v("sq"),el=$("#sr");if(!t)return;el.innerHTML='<p class="mu">Searching…</p>';const have=await haveSet();
+try{const d=await api("search?q="+encodeURIComponent(t));if(v("sq")!=t)return;keep([...d.best,...d.related]);
+el.innerHTML=(d.best.length?"<h3>Best matches</h3>"+d.best.map(f=>fcard(f,have)).join(""):'<p class="mu">No exact match.</p>')+(d.related.length?"<h3>Related</h3>"+d.related.map(f=>fcard(f,have)).join(""):"")}
+catch(e){if(v("sq")!=t)return;const w=t.toLowerCase().split(/\W+/).filter(Boolean),l=(await dbx("all")).filter(r=>r.email==me()&&w.some(x=>(r.title+" "+r.unit+" "+r.cat).toLowerCase().includes(x)));
+el.innerHTML=`<p class="mu">${esc(e.message)} Showing downloaded files only.</p>`+(l.map(r=>`<div class="c"><b>${esc(r.title)}</b><p class="mu" style="margin:2px 0 0">${esc(r.unit||"")} · ${esc(r.cat)}</p><button class="o" onclick="openF('${esc(r.id)}')">Open</button></div>`).join("")||'<p class="mu">Nothing downloaded matches.</p>')}}
+async function getF(id,b){const f=X.fm[id];b.disabled=true;b.textContent="Downloading…";try{const r=await fetch(f.url,{headers:{Authorization:"Bearer "+T}});if(!r.ok)throw 0;const bl=await r.blob();await dbx("put",{k:me()+"|"+f.id,email:me(),id:f.id,cat:f.cat,unit:f.unit,title:f.title,type:bl.type,blob:bl,t:Date.now()});if(navigator.storage&&navigator.storage.persist)navigator.storage.persist();b.textContent="Open (downloaded)";b.disabled=false;b.onclick=()=>openF(f.id)}catch(e){b.textContent=navigator.onLine?"Failed – tap to retry":"No internet – tap to retry";b.disabled=false}}
+function quizView(d,t){X.qz={Q:d.q||[],a:{}};R(`${back("dl(!X.me)")}<h2>${esc(t)}</h2><p class="mu" id="qs">Tap an answer. Score: 0/${X.qz.Q.length}</p>${X.qz.Q.map((q,i)=>`<div class="c"><b>${i+1}. ${esc(q.q)}</b>${q.o.map((o,j)=>`<button class="o" id="q${i}_${j}" onclick="qAns(${i},${j})">${esc(o)}</button>`).join("")}</div>`).join("")}`,X.me?sN(1):"")}
+function qAns(i,j){const z=X.qz;if(z.a[i]!=null)return;z.a[i]=j;const c=z.Q[i].a;z.Q[i].o.forEach((_,k)=>{const b=$("#q"+i+"_"+k);b.disabled=true;if(k==c)b.style.background="#d9f7e3";else if(k==j)b.style.background="#fde0e0"});$("#qs").textContent="Score: "+Object.keys(z.a).filter(x=>z.a[x]==z.Q[x].a).length+"/"+z.Q.length}
+async function openF(id){const r=await dbx("get",me()+"|"+id);if(!r)return;if((r.type||"").startsWith("application/json")){try{return quizView(JSON.parse(await r.blob.text()),r.title)}catch(e){}}const a=document.createElement("a");a.href=URL.createObjectURL(r.blob);a.target="_blank";a.click()}
+async function delF(id){await dbx("delete",me()+"|"+id);dl(!X.me)}
+async function dl(off){const all=(await dbx("all")).filter(r=>r.email==me());const body=all.length?CATS.map(c=>{const x=all.filter(r=>r.cat==c);return x.length?`<h3>${c} (${x.length})</h3>`+x.map(r=>`<div class="c"><b>${esc(r.title)}</b><p class="mu">${esc(r.unit||"")}</p><button class="o" onclick="openF('${esc(r.id)}')">Open</button><button class="o" onclick="delF('${esc(r.id)}')">Remove</button></div>`).join(""):""}).join(""):`<p class="mu">Nothing downloaded yet. Open a unit and tap Download to keep files on this phone.</p>`;
+R(`${off?back("splash()"):""}<h2>Downloads</h2><p class="mu">Saved on this phone. Open them any time, even without internet.</p>${body}`,off?"":sN(1))}
+function profile(){const d=X.me,p=P();R(`<h2>Profile</h2><div class="c"><div class="row"><span>Email</span><b>${esc(d.email)}</b></div><div class="row"><span>Phone</span><b>${esc(d.phone)}</b></div>${d.role=="stu"?`<div class="row"><span>University</span><b>${esc(p.uni||"Not set")}</b></div><div class="row"><span>Units</span><b style="text-align:right">${esc((p.units||[]).join(", ")||"Not set")}</b></div>`:""}</div>
+${d.role=="stu"?`<button class="o" onclick="setup()">Edit university and units</button>`:""}${IP?`<button class="o" onclick="IP.prompt()">Install app</button>`:""}<button onclick="out()">Log out</button>`,d.role=="stu"?sN(3):aN(2))}
+function aff(d){if(!d.approved)return R(`<h2>Affiliate</h2><div class="c"><b>Waiting for your affiliate code</b><p class="mu">Your request has reached the admin. Log in again later to see your code.</p></div>`,aN(0));
+R(`<div class="hd"><div><div class="mu">Affiliate</div><h1>Studyroom</h1></div><div class="av">${esc(d.email[0].toUpperCase())}</div></div>
+<div class="hero"><div class="mu">Your referral code</div><div class="big">${esc(d.code)}</div></div>
+<div class="c"><span class="mu">Payout waiting</span><div class="big">KES ${d.bal}</div><p class="mu">Sent to ${esc(d.phone)} every Saturday at 6:00 AM. Time left: <b id="cd"></b></p></div>
+<div class="c"><b>Students you referred (${d.refs.length})</b>${d.refs.map(r=>`<div class="row"><span>****${esc(r.p)}</span><b>+KES 35</b></div>`).join("")||`<p class="mu">None yet.</p>`}</div>`,aN(0));
+tick=setInterval(()=>{let s=Math.max(0,Math.floor((d.next-Date.now())/1e3));$("#cd").textContent=`${Math.floor(s/86400)}d ${Math.floor(s%86400/3600)}h ${Math.floor(s%3600/60)}m ${s%60}s`},1e3)}
+async function help(){const l=await api("complaints");R(`<h2>Help</h2><div class="f"><label>What is this about?</label><select id="ty"><option>Complaint about account affiliation</option><option>Complaint about affiliator account</option></select></div>
+<div class="f"><label>Describe the problem</label><textarea id="ms" rows="4" style="border:0;padding:3px 0;background:transparent"></textarea></div><p id="er" class="er"></p><button onclick="run(doHelp,this)">Send to admin</button>
+${l.map(c=>`<div class="c"><b>${esc(c.type)}</b><p class="mu">${esc(c.msg)}</p><b>${esc(c.status)}</b></div>`).join("")}`,aN(1))}
+async function doHelp(){await api("complaints",{type:v("ty"),msg:v("ms")});help()}
+$("#iw").innerHTML="Studyroom".split("").map((c,i)=>`<span style="--i:${i}">${c}</span>`).join("");
+setTimeout(()=>{$("#intro").classList.add("go");setTimeout(()=>$("#intro").remove(),1300)},2500);
+let IP;addEventListener("beforeinstallprompt",e=>{e.preventDefault();IP=e});
+const setOb=()=>{$("#offb").style.display=navigator.onLine?"none":"block"};addEventListener("online",setOb);addEventListener("offline",setOb);setOb();
+boot();
+if("serviceWorker" in navigator)navigator.serviceWorker.register("/sw.js");</script></body></html>
