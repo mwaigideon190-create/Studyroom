@@ -156,7 +156,7 @@ return`<h2>My course</h2><div class="card bx an" style="display:flex;gap:14px;al
 ${ev.length?`<h3>Key dates</h3><div class="card">${ev.map(e=>`<div class="sw"><span>${esc(e.title)}</span><b>${e.d?"in "+e.d+" day"+(e.d==1?"":"s"):"today"}</b></div>`).join("")}</div>`:""}`}};
 function me(){const t=(()=>{try{return localStorage.getItem("th")||"light"}catch(e){return"light"}})();return`<h2>Profile</h2><div class="card"><b>${esc(ME.email)}</b><div class="mu">${esc(ME.phone)}${P.uni?" · "+esc(P.uni):""}</div></div>
 ${ME.role=="stu"?EARN:""}<h3>Appearance</h3><div class="seg">${["light","dark","auto"].map(m=>`<button class="${t==m?"on":""}" data-th="${m}">${m[0].toUpperCase()+m.slice(1)}</button>`).join("")}</div>
-${ME.role=="stu"?`<h3>Study</h3><div class="card" data-act="units" style="cursor:pointer"><b>My units</b><div class="mu">Change the units you take</div></div>`:""}<button class="pb o" onclick="out()">Log out</button>`}
+${ME.role=="stu"?`<h3>Study</h3><div class="card" data-act="units" style="cursor:pointer"><b>My units</b><div class="mu">Change the units you take</div></div>`:""}${ME.admin?`<a class="pb o" href="admin.html" style="text-align:center;text-decoration:none">Open admin panel</a>`:""}<button class="pb o" onclick="out()">Log out</button>`}
 VS.me=me;
 // ---- affiliate views
 const VA={home(){const d=ME;if(!d.approved)return HERO("Affiliate",stat(0,"students")+stat(d.bal,"KES waiting"))+`<div class="card bx"><b>Waiting for your affiliate code</b><p class="mu">Your request has reached the admin. Log in again later to see your code.</p></div>`;
